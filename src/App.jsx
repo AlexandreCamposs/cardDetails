@@ -1,17 +1,45 @@
+import { useState } from 'react';
 import './App.css';
+import Input from './components/Input';
 
 function App() {
+  // const [form, setForm] = useState({
+  //   nome: '',
+  //   card: {
+  //     mes: 0,
+  //     ano: 0,
+  //     codSecury: 0,
+  //   },
+  // });
+  const [form, setForm] = useState({
+    firstName: 'Barbara',
+    lastName: 'Hepworth',
+    email: 'bhepworth@sculpture.com',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setForm({ ...form, firstName: e.target.value });
+  };
+
+  const handleClick = () => {
+    console.log('sdad');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <main>
       <div className="photo">
         <div className="front-card">
           <span> 1234 5678 9014 4567</span>
           <img
-            src="../public/img/card-logo.svg"
+            src="./img/card-logo.svg"
             alt="image card front"
             className="logo-card"
           />
-          <img src="../public/img/bg-card-front.png" alt="" />
+          <img src="./img/bg-card-front.png" alt="" />
           <div className="card-description">
             <div className="user-card">Alexandre campos</div>
             <div className="valid-card">00/00</div>
@@ -19,43 +47,76 @@ function App() {
         </div>
         <div className="back-card">
           <span>000</span>
-          <img
-            src="../public/img/bg-card-back.png"
-            alt="image card back"
-            className="x"
-          />
+          <img src="./img/bg-card-back.png" alt="image card back" />
         </div>
       </div>
-      <div className="box1"></div>
-      <div className="box2">
-        <form>
+      <div className="layout-background"></div>
+      <div className="container-form">
+        <form onSubmit={handleSubmit}>
           <label>
             TÍTULAR DO CARTÃO
-            <input type="text" name="name" placeholder="ex: Jane Almeida" />
+            <Input
+              type="text"
+              name="name"
+              value={form.nome}
+              placeholder="ex: Jane Almeida"
+              onChange={(e) => {
+                setForm({
+                  ...form,
+                  firstName: e.target.value,
+                });
+              }}
+            />
           </label>
           <label>
             NÚMERO DO CARTÃO
-            <input
+            <Input
               type="number"
               name="number"
+              value={form.card}
               placeholder="Ex: 1234 5678 9123 0000"
+              onChange={handleChange}
             />
           </label>
           <div className="date-card">
             <label className="mes">
               <span>EXP. DATE</span>
-              <input type="number" name="mes" placeholder="MM" />
+              <Input
+                type="number"
+                name="mes"
+                placeholder="MM"
+                onChange={handleChange}
+              />
             </label>
             <label className="dia">
               <span>(MM/YY)</span>
-              <input type="number" name="dia" placeholder="YY" />
+              <Input
+                type="number"
+                name="dia"
+                placeholder="YY"
+                onChange={handleChange}
+              />
             </label>
             <label className="cod">
               <span>CVC</span>
-              <input type="number" name="cod" placeholder="EX: 123" />
+              <Input
+                type="number"
+                name="cod"
+                placeholder="EX: 123"
+                onClick={handleChange}
+              />
             </label>
           </div>
-          <input className="submit" type="submit" value="Confirm" />
+          <div className="container-submit">
+            <Input
+              type="submit"
+              name="cod"
+              placeholder="EX: 123"
+              onClick={() => {
+                handleClick;
+              }}
+            />
+          </div>
         </form>
       </div>
     </main>

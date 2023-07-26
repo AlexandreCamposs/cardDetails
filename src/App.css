@@ -8,14 +8,14 @@ main {
   height: 100vh;
 }
 
-.box1 {
+.layout-background {
   background: url(../public//img/bg-main-desktop.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 35%;
 }
 
-.box2 {
+.container-form {
   width: 75%;
   display: flex;
   justify-content: center;
@@ -67,7 +67,7 @@ form input {
   flex: 2;
 }
 
-.submit {
+.container-submit input {
   background-color: #19145f;
   color: #fff;
   font-size: 1rem;
@@ -75,7 +75,7 @@ form input {
   padding: 1rem;
 }
 
-.submit:hover {
+.container-submit input:hover {
   background-color: #8e77d2;
 }
 
@@ -139,12 +139,12 @@ form input {
     display: flex;
     flex-direction: column;
   }
-  .box1 {
+  .layout-background {
     background-image: url(../public/img/bg-main-mobile.png);
     height: 30%;
     width: 100%;
   }
-  .box2 {
+  .container-form {
     width: 100%;
     margin-top: 10rem;
   }
