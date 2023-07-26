@@ -19,7 +19,11 @@ function App() {
         </div>
         <div className="back-card">
           <span>000</span>
-          <img src="../public/img/bg-card-back.png" alt="image card back" />
+          <img
+            src="../public/img/bg-card-back.png"
+            alt="image card back"
+            className="x"
+          />
         </div>
       </div>
       <div className="box1"></div>

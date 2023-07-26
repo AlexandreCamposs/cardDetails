@@ -6,7 +6,6 @@ main {
   font-family: 'Poppins';
   width: 100vw;
   height: 100vh;
-  border: 2px solid red;
 }
 
 .box1 {
@@ -14,7 +13,6 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   width: 35%;
-  border: 2px solid #434;
 }
 
 .box2 {
@@ -22,15 +20,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid olive;
 }
 
 form {
   padding: 1rem;
-  /* border: 2px solid slateblue; */
   width: 400px;
-  /* display: flex; */
-  /* flex-direction: column; */
 }
 
 form label {
@@ -42,7 +36,6 @@ form label {
 }
 
 form input {
-  /* width: 100%; */
   margin: 0.5rem 0;
   padding: 0.5rem;
   display: block;
@@ -53,7 +46,6 @@ form input {
 .date-card {
   display: flex;
   width: 100%;
-  /* border: 2px solid red; */
 }
 
 .date-card input {
@@ -80,6 +72,7 @@ form input {
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+  padding: 1rem;
 }
 
 .submit:hover {
@@ -91,7 +84,6 @@ form input {
   top: 25%;
   left: 15%;
   width: 600px;
-  /* border: 3px solid #434; */
 }
 
 .back-card {
@@ -103,7 +95,6 @@ form input {
 
 .front-card {
   position: relative;
-  /* border: 2px solid red; */
 }
 
 .front-card span {
@@ -142,4 +133,50 @@ form input {
   position: absolute;
   top: 44%;
   right: 15%;
+}
+@media screen and (max-width: 400px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .box1 {
+    background-image: url(../public/img/bg-main-mobile.png);
+    height: 30%;
+    width: 100%;
+  }
+  .box2 {
+    width: 100%;
+    margin-top: 10rem;
+  }
+  .photo {
+    display: flex;
+    flex-direction: column-reverse;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .front-card span {
+    font-size: 1.2rem;
+    left: 10%;
+  }
+
+  .front-card {
+    position: absolute;
+    top: 8.1rem;
+    z-index: 1;
+  }
+
+  .front-card img[src$='bg-card-front.png'],
+  .back-card img[src$='bg-card-back.png'] {
+    width: 90%;
+  }
+  /* .photo div img:last-child {
+    width: 90%;
+  } */
+  .valid-card {
+    bottom: 10%;
+    right: 25%;
+  }
 }
