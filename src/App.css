@@ -169,7 +169,7 @@ form input {
   }
   .container-form {
     width: 100%;
-    margin-top: 10rem;
+    margin-top: 7rem;
   }
   .photo {
     display: flex;
@@ -206,7 +206,7 @@ form input {
     right: 25%;
   }
 }
-@media screen and (min-width: 450px) {
+@media (min-width: 450px) and (max-width: 1400px) {
   .photo {
     width: 35%;
     left: 10%;
