@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Input from './components/Input';
+import Message from './components/Message';
 
 function App() {
   const [form, setForm] = useState({
@@ -12,6 +13,9 @@ function App() {
       codSecury: '',
     },
   });
+  const [messageShipping, setMessageShipping] = useState(false);
+  const [showForm, setShowForm] = useState(true);
+  const [messageError, SetMessageError] = useState(false);
 
   function handleChangeName(e) {
     setForm({
@@ -68,7 +72,18 @@ function App() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log('Clicou');
+    if (
+      form.name !== '' &&
+      form.card.numberCard !== '' &&
+      form.card.month !== '' &&
+      form.card.year !== '' &&
+      form.card.codSecury !== ''
+    ) {
+      setShowForm(false);
+      setMessageShipping(true);
+    } else {
+      SetMessageError(true);
+    }
   };
 
   return (
@@ -108,73 +123,77 @@ function App() {
       </div>
       <div className="layout-background"></div>
       <div className="container-form">
-        <form>
-          <label>
-            TÍTULAR DO CARTÃO
-            <Input
-              type="text"
-              name="name"
-              value={form.name}
-              placeholder="ex: Jane Almeida"
-              maxLength={19}
-              required={true}
-              onChange={handleChangeName}
-            />
-          </label>
-          <label>
-            NÚMERO DO CARTÃO
-            <Input
-              type="text"
-              name="numberCard"
-              value={form.card.numberCard}
-              placeholder="Ex: 1234 5678 9123 0000"
-              maxLength={19}
-              required={true}
-              onChange={handleChangeNumberCard}
-            />
-          </label>
-          <div className="date-card">
-            <label className="mes">
-              <span>EXP. DATE</span>
+        {showForm && (
+          <form>
+            <label>
+              TÍTULAR DO CARTÃO
               <Input
                 type="text"
-                name="month"
-                value={form.card.month}
-                placeholder="MM"
-                required={true}
-                maxLength={2}
-                onChange={handleChangeValidityMonth}
+                name="name"
+                value={form.name}
+                placeholder="ex: Jane Almeida"
+                maxLength={19}
+                required="true"
+                onChange={handleChangeName}
               />
             </label>
-            <label className="dia">
-              <span>(MM/YY)</span>
+            <label>
+              NÚMERO DO CARTÃO
               <Input
                 type="text"
-                name="year"
-                value={form.card.year}
-                placeholder="YY"
-                required={true}
-                maxLength={2}
-                onChange={handleChangeValidityYear}
+                name="numberCard"
+                value={form.card.numberCard}
+                placeholder="Ex: 1234 5678 9123 0000"
+                maxLength={19}
+                required="true"
+                onChange={handleChangeNumberCard}
               />
             </label>
-            <label className="cod">
-              <span>CVC</span>
-              <Input
-                type="text"
-                name="codSecury"
-                value={form.card.codSecury}
-                placeholder="EX: 123"
-                required={true}
-                maxLength={3}
-                onChange={handleChangeValiditySecury}
-              />
-            </label>
-          </div>
-          <button className="submit" type="submit" onClick={handleClick}>
-            Enviar
-          </button>
-        </form>
+            <div className="date-card">
+              <label className="mes">
+                <span>EXP. DATE</span>
+                <Input
+                  type="text"
+                  name="month"
+                  value={form.card.month}
+                  placeholder="MM"
+                  required="true"
+                  maxLength={2}
+                  onChange={handleChangeValidityMonth}
+                />
+              </label>
+              <label className="dia">
+                <span>(MM/YY)</span>
+                <Input
+                  type="text"
+                  name="year"
+                  value={form.card.year}
+                  placeholder="YY"
+                  required="true"
+                  maxLength={2}
+                  onChange={handleChangeValidityYear}
+                />
+              </label>
+              <label className="cod">
+                <span>CVC</span>
+                <Input
+                  type="text"
+                  name="codSecury"
+                  value={form.card.codSecury}
+                  placeholder="EX: 123"
+                  required="true"
+                  maxLength={3}
+                  onChange={handleChangeValiditySecury}
+                />
+              </label>
+            </div>
+            <button className="submit" type="submit" onClick={handleClick}>
+              Enviar
+            </button>
+            {messageError && <h3>Preencha todos os campos do formulário</h3>}
+          </form>
+        )}
+        {messageShipping && <Message />}
       </div>
     </main>
   );

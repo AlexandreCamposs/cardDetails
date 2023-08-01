@@ -5,7 +5,7 @@ const Input = ({
   name,
   value,
   placeholder,
-  required,
+
   maxLength,
   onChange,
 }) => {
@@ -15,7 +15,7 @@ const Input = ({
       name={name}
       value={value}
       maxLength={maxLength}
-      required={required}
+      required={true}
       placeholder={placeholder}
       onChange={onChange}
     />

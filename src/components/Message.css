@@ -1,0 +1,26 @@
+.container-message {
+  text-align: center;
+}
+.container-message h1 {
+  font-size: 2.2rem;
+  margin: 2rem 0;
+}
+
+.container-message p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.container-message button {
+  background-color: #19145f;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  width: 90%;
+}
+.container-message button:hover {
+  background-color: #8e77d2;
+}

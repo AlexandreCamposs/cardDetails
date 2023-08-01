@@ -84,6 +84,15 @@ form input {
 /* .hide {
   display: none;
 } */
+.container-form h3 {
+  color: red;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  border: 1px solid red;
+  border-radius: 5px;
+}
 
 .photo {
   position: absolute;
@@ -178,7 +187,7 @@ form input {
 
   .front-card {
     position: absolute;
-    top: 8.1rem;
+    top: 8.6rem;
     z-index: 1;
   }
 
@@ -189,6 +198,9 @@ form input {
   /* .photo div img:last-child {
     width: 90%;
   } */
+  .card-description {
+    width: 90%;
+  }
   .valid-card {
     bottom: 10%;
     right: 25%;
