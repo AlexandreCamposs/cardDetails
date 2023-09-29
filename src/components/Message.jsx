@@ -5,7 +5,7 @@ const Message = () => {
   return (
     <div className="container-message">
       <img
-        src="./public/img/icon-complete.svg"
+        src="/public/img/icon-complete.svg"
         alt="icone de confirmação de envio"
       />
       <h1>Obrigado!</h1>
